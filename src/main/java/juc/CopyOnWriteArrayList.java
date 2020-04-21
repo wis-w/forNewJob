@@ -1,6 +1,7 @@
 package juc;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
@@ -12,7 +13,16 @@ import java.util.concurrent.CopyOnWriteArraySet;
 public class CopyOnWriteArrayList {
 
     public static void main(String[] args) {
-        setNotSafe();
+//        Map<String,Object> map = new HashMap();
+        Map<String, Object> map =new ConcurrentHashMap <String, Object>();
+
+        for (int i = 0; i < 100; i++) {
+            new Thread(()->{
+                map.put(Thread.currentThread().getName(), UUID.randomUUID().toString().substring(0, 8));
+                System.out.println(map);
+            }).start();
+
+        }
     }
 
     private static void setNotSafe() {
