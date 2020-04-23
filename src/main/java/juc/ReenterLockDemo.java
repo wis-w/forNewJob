@@ -26,7 +26,6 @@ public class ReenterLockDemo {
 			try {
 				phone.sendSMS();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}, "t2").start();
