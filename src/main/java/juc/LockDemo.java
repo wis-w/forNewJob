@@ -3,9 +3,9 @@ package juc;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Lock {
+public class LockDemo {
 	
-	static Lock lock = new Lock();
+	static LockDemo lock = new LockDemo();
 
 	AtomicReference<Thread> atomicReference = new AtomicReference<Thread>();
 	public void lock() {
